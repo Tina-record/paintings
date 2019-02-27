@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Robot</title>
+    <style>
+        #mr-cav {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+
+<body>
+
+<canvas id="mr-cav" width="800" height="500"></canvas>
+
+<script>
+    function leftHand(x, y) {
+
+        //绘制左肩膀（圆形）
+        cav.beginPath();
+        cav.fillStyle = '#b15e02';
+        cav.arc(314 + x, 155 + y, 8, 0, Math.PI * 2, true);
+        cav.fill();
+
+
+        //绘制左胳膊（长方形）
+        cav.beginPath();
+        cav.rotate(15 * Math.PI/180); //将左胳膊旋转 5*Math.PI/3 弧度
+        cav.fillStyle = '#b15e02';
+        cav.fillRect(323 + x, 65 + y, 20, 70);
+        cav.fill();
+
+
+    }
+
+    function rightHand(x, y) {
+        //绘制右肩膀（圆形）
+        cav.beginPath();
+        cav.fillStyle = '#b15e02';
+        cav.arc(432 + x, 43 + y, 8, 0, Math.PI * 2, true);
+        cav.fill();
+
+        //绘制右胳膊（长方形）
+        cav.beginPath();
+        cav.rotate(75 * Math.PI/180); //将左胳膊旋转 5*Math.PI/3 弧度
+        cav.fillStyle = '#b15e02';
+        cav.fillRect(143 + x, -483 + y, 20, 70);
+        cav.fill();
+    }
+
+
+    var cav = document.getElementById('mr-cav').getContext('2d');
+
+    //绘制头部
+    cav.beginPath();
+    cav.fillStyle = '#de8200'; //设定填充色为 #de8200
+    cav.rect(300, 50, 115, 90); //从(300,50)坐标为起点绘制一个宽为115，高为90 的矩形
+    cav.closePath();
+    cav.fill();
+
+    //眼睛设置为黑色
+    //绘制左眼
+    cav.beginPath();
+    cav.fillStyle = '#000';
+    cav.arc(335, 80, 10, 0, Math.PI * 2, true);
+    cav.fill();
+
+    //绘制右眼
+    cav.beginPath();
+    cav.arc(375, 80, 10, 0, Math.PI * 2, true);
+    cav.fill();
+
+    //绘制鼻子黑色
+    cav.beginPath();
+    cav.moveTo(355, 90);
+    cav.lineTo(338, 105);
+    cav.lineTo(372, 105);
+    cav.fill();
+
+    //绘制嘴巴
+    cav.beginPath();
+    cav.strokeStyle = '#fff'; //线段边框颜色
+    cav.lineWidth = '2'; //线型粗细，该属性值必须是正数。
+    cav.moveTo(332, 112);
+    cav.bezierCurveTo(332, 128, 378, 128, 378, 112);
+    cav.stroke();
+
+    //绘制肚子
+    cav.beginPath();
+    cav.fillStyle = 'green';
+    cav.rect(320, 140, 80, 90);
+    cav.fill();
+
+    //绘制裤子
+    cav.beginPath();
+    cav.fillStyle = '#bd6400';
+    cav.rect(328, 230, 65, 30);
+    cav.fill();
+
+    //绘制左腿
+    cav.beginPath();
+    cav.fillStyle = '#bl5e02';
+    cav.rect(335, 260, 20, 60)
+    cav.fill();
+
+    //绘制右腿
+    cav.beginPath();
+    cav.fillStyle = '#bl5e02';
+    cav.rect(365, 260, 20, 60)
+    cav.fill();
+
+    //绘制手机
+    //绘制手机框架
+    cav.beginPath();
+    cav.lineWidth = '1';
+    cav.strokeStyle = '#000';
+    cav.fillStyle = '#ccc';
+    cav.rect(456, 107, 22, 35);
+    cav.fill();
+    cav.stroke();
+
+    //绘制手机听筒
+    cav.beginPath();
+    cav.strokeStyle = 'red';
+    cav.moveTo(462, 112);
+    cav.lineTo(472, 112);
+    cav.stroke();
+
+    //绘制手机屏幕
+    cav.beginPath();
+    cav.lineWidth = '1';
+    cav.fillStyle = '#000';
+    cav.rect(458.5, 115, 17, 20);
+    cav.fill();
+
+    //绘制Home键
+    cav.beginPath();
+    cav.arc(467, 138, 2, 0, Math.PI * 2, true);
+    cav.stroke();
+
+    leftHand(0, 0);
+    rightHand(0, 0);
+</script>
+</body>
+
+</html>
